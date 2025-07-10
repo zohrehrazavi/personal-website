@@ -2,185 +2,212 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Zohreh Razavi | Software & Product Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zohreh Razavi | Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
       * {
         box-sizing: border-box;
-        scroll-behavior: smooth;
-      }
-
-      body {
-        font-family: 'Segoe UI', Arial, sans-serif;
-        background-color: #f4f6f9;
-        color: #333;
         margin: 0;
         padding: 0;
       }
 
-      header {
-        background-color: #003366;
-        color: white;
-        padding: 2rem 1rem;
-        text-align: center;
-        position: relative;
-      }
-
-      header img {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid white;
-        margin-top: 1rem;
-      }
-
-      .intro {
-        max-width: 700px;
-        margin: auto;
-        margin-top: 1rem;
-      }
-
-      nav {
-        background-color: white;
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #fdf2f4;
         display: flex;
+        flex-direction: row;
+        min-height: 100vh;
+        flex-wrap: wrap;
+      }
+
+      /* LEFT PANEL */
+      .left-panel {
+        flex: 1;
+        min-width: 300px;
+        background-color: #d97683;
+        color: #000;
+        padding: 4rem;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
-        gap: 2rem;
-        padding: 1rem;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        border-bottom: 1px solid #ccc;
+        align-items: flex-start;
       }
 
-      nav a {
-        text-decoration: none;
-        color: #003366;
-        font-weight: bold;
+      .left-panel h1 {
+        font-family: 'Anton', sans-serif;
+        font-size: 16vw;
+        font-weight: 900;
+        line-height: 1;
+        text-transform: uppercase;
+        text-align: left;
       }
 
-      nav a:hover {
-        color: #0066cc;
+      .left-panel p {
+        margin-top: 2rem;
+        font-size: 1.5vw;
+        font-weight: 400;
       }
 
-      main {
-        max-width: 800px;
-        margin: auto;
-        padding: 2rem 1rem;
+      /* RIGHT PANEL */
+      .right-panel {
+        flex: 1;
+        min-width: 300px;
+        background-color: #fff0f1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 2rem;
       }
 
-      h1,
-      h2 {
-        color: #003366;
+      .circle-menu {
+        position: relative;
+        width: 520px;
+        height: 520px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 1rem;
-        margin-top: 1rem;
+      .center-avatar {
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        border: 6px solid white;
+        object-fit: cover;
+        z-index: 2;
       }
 
-      .project-card {
-        background-color: white;
-        padding: 1rem;
-        border-radius: 8px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
-        border: 1px solid #e0e0e0;
+      .circle-button {
+        position: absolute;
+        width: 270px;
+        height: 270px;
+        border-radius: 50%;
+        background-color: #d97683;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: rotate(var(--angle)) translate(230px);
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        cursor: pointer;
+        z-index: 1;
       }
 
-      .project-card h3 {
-        margin-top: 0;
-      }
-
-      footer {
+      .circle-button span {
+        display: block;
+        transform: rotate(calc(-1 * var(--angle)));
+        color: white;
+        font-size: 1.4rem;
         text-align: center;
-        padding: 2rem 1rem;
-        font-size: 0.9em;
-        color: #777;
-        border-top: 1px solid #ddd;
+        max-width: 100px;
+        pointer-events: none;
+        line-height: 1.2;
+      }
+
+      .circle-button:hover {
+        background-color: #bb5e6c;
+        transform: rotate(var(--angle)) translate(230px) scale(1.1);
+      }
+
+      /* MOBILE */
+      @media (max-width: 768px) {
+        body {
+          flex-direction: column;
+        }
+
+        .left-panel {
+          width: 100%;
+          padding: 2rem 1rem;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .left-panel h1 {
+          font-size: 30vw;
+          line-height: 1;
+          text-align: center;
+        }
+
+        .left-panel p {
+          margin-top: 1rem;
+          font-size: 4vw;
+          text-align: center;
+        }
+        .right-panel {
+          padding: 1rem 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 50vh;
+        }
+
+        .circle-menu {
+          width: 320px;
+          height: 320px;
+        }
+
+        .center-avatar {
+          width: 160px;
+          height: 160px;
+        }
+
+        .circle-button {
+          width: 120px;
+          height: 120px;
+          transform: rotate(var(--angle)) translate(115px);
+        }
+
+        .circle-button span {
+          font-size: 0.85rem;
+          max-width: 60px;
+        }
+
+        .circle-button:hover {
+          transform: rotate(var(--angle)) translate(115px) scale(1.1);
+        }
       }
     </style>
   </head>
-
   <body>
-    <header>
-      <h1>Hello, I'm Zohreh 👋</h1>
-      <div class="intro">
-        <p>
-          I manage software projects and contribute to product strategy for
-          tech-driven teams. I bring structure, clarity, and collaboration to
-          complex technical work.
-        </p>
-      </div>
-      <img src="Profile.jpeg" alt="Profile photo placeholder" />
-    </header>
-
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <main>
-      <section id="about">
-        <h2>About Me</h2>
-        <p>
-          I’m a software project manager with a background in engineering and a
-          strong focus on execution, collaboration, and meaningful outcomes. I
-          work closely with developers, designers, and stakeholders to bridge
-          gaps between strategy and delivery.
-        </p>
-        <p>
-          I'm also comfortable stepping into product ownership for technical
-          products — shaping roadmaps, scoping MVPs, and aligning features with
-          user needs. My experience spans agile projects, research tools, and
-          digital platforms.
-        </p>
-      </section>
-
-      <section id="projects">
-        <h2>Projects</h2>
-        <p>Here are a few sample projects. More details coming soon!</p>
-        <div class="projects-grid">
-          <div class="project-card">
-            <h3>Smart Pet Feeder</h3>
-            <p>
-              An IoT-based feeder with camera, laser, and health tracking—built
-              as a semester project.
-            </p>
-          </div>
-          <div class="project-card">
-            <h3>AI Risk Platform (AURA)</h3>
-            <p>
-              Led frontend/backend scoping for an ML-driven platform to predict
-              project risks.
-            </p>
-          </div>
-          <div class="project-card">
-            <h3>Connect The Dots</h3>
-            <p>
-              A Django-based investigation tool for mapping people and facts in
-              unsolved cases.
-            </p>
-          </div>
+    <div class="left-panel">
+      <h1>
+        ZOHREH
+        <br />
+        RAZAVI
+      </h1>
+      <p>Software Project Manager — Istanbul, TR</p>
+    </div>
+    <div class="right-panel">
+      <div class="circle-menu">
+        <img src="avatar.png" class="center-avatar" alt="Avatar" />
+        <div class="circle-button" style="--angle: 0deg;">
+          <span>about</span>
         </div>
-      </section>
-
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>
-          You can find me on
-          <a href="https://www.linkedin.com/in/zohrehrazavi" target="_blank">
-            LinkedIn
-          </a>
-          or email me at:
-          <strong>zohrehrazavi [at] gmail.com</strong>
-        </p>
-      </section>
-    </main>
-
-    <footer>
-      <p>© 2025 Zohreh Razavi</p>
-    </footer>
+        <div class="circle-button" style="--angle: 60deg;">
+          <span>projects</span>
+        </div>
+        <div class="circle-button" style="--angle: 120deg;">
+          <span>blog</span>
+        </div>
+        <div class="circle-button" style="--angle: 180deg;">
+          <span>resume</span>
+        </div>
+        <div class="circle-button" style="--angle: 240deg;">
+          <span>tools</span>
+        </div>
+        <div class="circle-button" style="--angle: 300deg;">
+          <span>contact</span>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
