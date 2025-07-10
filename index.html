@@ -175,6 +175,33 @@
           transform: rotate(var(--angle)) translate(115px) scale(1.1);
         }
       }
+      /* Extra Small Phones (≤ 480px) */
+      @media (max-width: 480px) {
+        .circle-menu {
+          width: 220px;
+          height: 220px;
+        }
+
+        .center-avatar {
+          width: 100px;
+          height: 100px;
+        }
+
+        .circle-button {
+          width: 70px;
+          height: 70px;
+          transform: rotate(var(--angle)) translate(75px);
+        }
+
+        .circle-button span {
+          font-size: 0.65rem;
+          max-width: 40px;
+        }
+
+        .circle-button:hover {
+          transform: rotate(var(--angle)) translate(75px) scale(1.1);
+        }
+      }
     </style>
   </head>
   <body>
