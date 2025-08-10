@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zohreh Razavi | Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #fdf2f4;
+        display: flex;
+        flex-direction: row;
+        min-height: 100vh;
+        flex-wrap: wrap;
+      }
+
+      /* LEFT PANEL */
+      .left-panel {
+        flex: 1;
+        min-width: 300px;
+        background-color: #d97683;
+        color: #000;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      .left-panel h1 {
+        font-family: 'Anton', sans-serif;
+        font-size: 16vw;
+        font-weight: 900;
+        line-height: 0.95;
+        text-transform: uppercase;
+        text-align: left;
+        width: 100%;
+        letter-spacing: 0.02em;
+      }
+
+      .left-panel p {
+        margin-top: 2rem;
+        font-size: 1.6vw;
+        font-weight: 400;
+      }
+
+      /* RIGHT PANEL */
+      .right-panel {
+        flex: 1;
+        min-width: 300px;
+        background-color: #fff0f1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 1rem;
+      }
+
+      .circle-menu {
+        position: relative;
+        width: 600px;
+        height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .center-avatar {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        border: 8px solid white;
+        object-fit: cover;
+        z-index: 2;
+      }
+
+      .circle-button {
+        position: absolute;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        background-color: #d97683;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: rotate(var(--angle)) translate(260px);
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        cursor: pointer;
+        z-index: 1;
+      }
+
+      .circle-button span {
+        display: block;
+        transform: rotate(calc(-1 * var(--angle)));
+        color: white;
+        font-size: 1.6rem;
+        text-align: center;
+        max-width: 120px;
+        pointer-events: none;
+        line-height: 1.2;
+        font-weight: 500;
+        position: relative;
+        top: -2px;
+      }
+
+      .circle-button:hover {
+        background-color: #bb5e6c;
+        transform: rotate(var(--angle)) translate(260px) scale(1.1);
+      }
+
+      /* Small Screens (Mobile) */
+      @media (max-width: 768px) {
+        body {
+          flex-direction: column;
+        }
+
+        .left-panel {
+          width: 100%;
+          padding: 1.5rem 1rem;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+          min-height: 35vh;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .left-panel h1 {
+          font-size: 24vw;
+          text-align: center;
+          width: 100%;
+          line-height: 0.8;
+        }
+
+        .left-panel p {
+          margin-top: 1rem;
+          font-size: 5vw;
+          text-align: center;
+        }
+
+        .right-panel {
+          padding: 0.5rem;
+          min-height: 65vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .circle-menu {
+          width: 380px;
+          height: 380px;
+          margin: 0 auto;
+        }
+
+        .center-avatar {
+          width: 190px;
+          height: 190px;
+        }
+
+        .circle-button {
+          width: 150px;
+          height: 150px;
+          transform: rotate(var(--angle)) translate(140px);
+        }
+
+        .circle-button span {
+          font-size: 1rem;
+          max-width: 70px;
+          position: relative;
+          top: -1px;
+        }
+
+        .circle-button:hover {
+          transform: rotate(var(--angle)) translate(140px) scale(1.1);
+        }
+      }
+
+      /* Extra Small Mobile */
+      @media (max-width: 480px) {
+        .left-panel {
+          min-height: 30vh;
+          padding: 1rem 0.5rem;
+        }
+
+        .left-panel h1 {
+          font-size: 20vw;
+        }
+
+        .left-panel p {
+          font-size: 4vw;
+        }
+
+        .right-panel {
+          min-height: 70vh;
+          padding: 0.5rem;
+        }
+
+        .circle-menu {
+          width: 320px;
+          height: 320px;
+        }
+
+        .center-avatar {
+          width: 160px;
+          height: 160px;
+        }
+
+        .circle-button {
+          width: 120px;
+          height: 120px;
+          transform: rotate(var(--angle)) translate(115px);
+        }
+
+        .circle-button span {
+          font-size: 0.85rem;
+          max-width: 60px;
+          position: relative;
+          top: -1px;
+        }
+
+        .circle-button:hover {
+          transform: rotate(var(--angle)) translate(115px) scale(1.1);
+        }
+      }
+
+      /* Very Small Mobile */
+      @media (max-width: 360px) {
+        .left-panel h1 {
+          font-size: 18vw;
+        }
+
+        .left-panel p {
+          font-size: 3.5vw;
+        }
+
+        .circle-menu {
+          width: 280px;
+          height: 280px;
+        }
+
+        .center-avatar {
+          width: 140px;
+          height: 140px;
+        }
+
+        .circle-button {
+          width: 100px;
+          height: 100px;
+          transform: rotate(var(--angle)) translate(100px);
+        }
+
+        .circle-button span {
+          font-size: 0.75rem;
+          max-width: 50px;
+          position: relative;
+          top: -1px;
+        }
+
+        .circle-button:hover {
+          transform: rotate(var(--angle)) translate(100px) scale(1.1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="left-panel">
+      <h1>
+        ZOHREH
+        <br />
+        RAZAVI
+      </h1>
+      <p>Software Project and Product Manager</p>
+    </div>
+    <div class="right-panel">
+      <div class="circle-menu">
+        <img src="avatar.png" class="center-avatar" alt="Avatar" />
+        <div class="circle-button" style="--angle: 0deg;">
+          <span>About</span>
+        </div>
+        <div class="circle-button" style="--angle: 60deg;">
+          <span>Work</span>
+        </div>
+        <div class="circle-button" style="--angle: 120deg;">
+          <span>Blog</span>
+        </div>
+        <div class="circle-button" style="--angle: 180deg;">
+          <span>CV</span>
+        </div>
+        <div class="circle-button" style="--angle: 240deg;">
+          <span>Tools</span>
+        </div>
+        <div class="circle-button" style="--angle: 300deg;">
+          <span>Contact</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
