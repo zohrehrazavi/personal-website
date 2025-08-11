@@ -1,0 +1,184 @@
+/* Header Styles - Shared across all pages */
+
+/* Base header */
+.site-header {
+  position: sticky; 
+  top: 0; 
+  z-index: 50;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  padding: .75rem 1rem;
+  background: linear-gradient(180deg, #d97683 0%, #c86a72 100%);
+  color: #000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Brand link */
+.brand {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.5rem;
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+  font-weight: 900;
+}
+
+.brand:hover {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Hamburger */
+.hamburger {
+  width: 40px; 
+  height: 32px; 
+  display: inline-flex;
+  flex-direction: column; 
+  justify-content: center; 
+  gap: 6px;
+  background: none; 
+  border: 0; 
+  cursor: pointer;
+}
+.hamburger__bar { 
+  height: 3px; 
+  width: 100%; 
+  background: #000; 
+  border-radius: 2px; 
+}
+
+/* Backdrop (click-to-close) */
+.backdrop {
+  position: fixed; 
+  inset: 0; 
+  background: rgba(0,0,0,.35);
+  z-index: 79; 
+  opacity: 0; 
+  visibility: hidden; 
+  transition: opacity .25s ease;
+}
+
+/* Drawer */
+.drawer {
+  position: fixed; 
+  inset: 0 0 0 auto; /* right side */
+  width: min(78vw, 320px);
+  background: #d97683; 
+  color: #fff;
+  transform: translateX(100%); 
+  transition: transform .25s ease;
+  z-index: 80; 
+  padding: 1.25rem;
+  box-shadow: -8px 0 24px rgba(0,0,0,.15);
+}
+.drawer__list { 
+  list-style: none; 
+  margin: 0; 
+  padding: 0; 
+  display: grid; 
+  gap: .75rem; 
+}
+.drawer__list a { 
+  color: #fff; 
+  text-decoration: none; 
+  font-weight: 700; 
+  font-size: 1.125rem; 
+}
+
+/* Open state (applied to <body>) */
+.nav-open .drawer { transform: translateX(0); }
+.nav-open .backdrop { opacity: 1; visibility: visible; }
+
+/* Prevent scroll when open */
+.nav-open { overflow: hidden; }
+
+/* Legacy header styles for backward compatibility */
+header {
+  background: linear-gradient(180deg, #d97683 0%, #c86a72 100%);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Add subtle bottom shadow for visual separation */
+header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+}
+
+.site-name {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.5rem;
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+  font-weight: 900;
+}
+
+.site-name:hover {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Visibility rules */
+@media (min-width: 769px) {
+  .hamburger, .drawer, .backdrop { display: none !important; }
+  /* desktop: keep flower visible */
+}
+@media (max-width: 768px) {
+  /* mobile: hide the flower area entirely */
+  .right-panel { display: none; }
+  
+  header {
+    padding: 0.75rem 1rem;
+    background: linear-gradient(180deg, #d97683 0%, #c86a72 100%);
+  }
+  
+  .brand {
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Responsive header */
+@media (max-width: 768px) {
+  header {
+    padding: 0.75rem 1rem;
+    background: linear-gradient(180deg, #d97683 0%, #c86a72 100%);
+  }
+  
+  .site-name {
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 0.5rem 1rem;
+    background: linear-gradient(180deg, #d97683 0%, #c86a72 100%);
+  }
+  
+  .site-name {
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .brand {
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+  }
+} 

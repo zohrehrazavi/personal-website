@@ -8,22 +8,40 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: #fdf2f4;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   min-height: 100vh;
-  flex-wrap: wrap;
+}
+
+/* Main content wrapper for desktop layout */
+.main-content {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
 }
 
 /* LEFT PANEL */
 .left-panel {
-  flex: 0 0 50%;
-  min-width: 300px;
-  background-color: #d97683;
+  flex: 1;
+  background: linear-gradient(180deg, #d97683 0%, #c86a72 100%);
   color: #000;
   padding: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  position: relative;
+}
+
+/* Add subtle shadow divider between panels */
+.left-panel::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.1) 100%);
+  box-shadow: 1px 0 3px rgba(0,0,0,0.1);
 }
 
 .left-panel h1 {
@@ -34,19 +52,23 @@ body {
   text-transform: uppercase;
   text-align: left;
   width: 100%;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
 }
 
 .left-panel p {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   font-size: 1.6vw;
   font-weight: 400;
+  color: #000;
+  opacity: 0.9;
+  text-align: left;
+  line-height: 1.3;
 }
 
 /* RIGHT PANEL */
 .right-panel {
-  flex: 0 0 50%;
-  min-width: 300px;
+  flex: 1;
   background-color: #fff0f1;
   display: flex;
   align-items: center;
@@ -86,6 +108,13 @@ body {
   transition: transform 0.3s ease, background-color 0.3s ease;
   cursor: pointer;
   z-index: 1;
+  text-decoration: none;
+  color: inherit;
+}
+
+.circle-button:focus-visible {
+  outline: 3px solid #111;
+  outline-offset: 3px;
 }
 
 .circle-button span {
@@ -123,6 +152,12 @@ body {
     min-height: 45vh !important;
     display: flex !important;
     flex-direction: column !important;
+    background: linear-gradient(180deg, #d97683 0%, #c86a72 100%) !important;
+  }
+
+  /* Remove divider on mobile since panels are stacked */
+  .left-panel::after {
+    display: none !important;
   }
 
   .left-panel h1 {
@@ -130,8 +165,8 @@ body {
     text-align: center !important;
     width: 100% !important;
     line-height: 0.9 !important;
-    margin-bottom: 0 !important;
-    letter-spacing: 0.02em !important;
+    margin-bottom: 0.5rem !important;
+    letter-spacing: 0.05em !important;
   }
 
   .left-panel h1 br {
@@ -146,86 +181,17 @@ body {
     text-align: center !important;
     max-width: 90% !important;
     line-height: 1.3 !important;
+    opacity: 0.9 !important;
   }
 
+  /* Hide the flower navigation on mobile - replaced by hamburger menu */
   .right-panel {
-    width: 100% !important;
-    flex: none !important;
-    padding: 1rem !important;
-    min-height: 55vh !important;
-    display: grid !important;
-    place-items: center !important;
-    text-align: center !important;
-    margin: 0 !important;
-    max-width: none !important;
-    overflow: hidden !important;
+    display: none !important;
   }
 
-  /* Mobile-only helper strip */
+  /* Hide mobile intro since we have hamburger menu now */
   .mobile-intro {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
-    margin: 0 0 1.5rem 0 !important;
-    position: relative !important;
-    z-index: 1 !important;
-    width: 100% !important;
-    text-align: center !important;
-  }
-
-  .intro-note {
-    font-size: 0.95rem !important;
-    color: #6b6b6b !important;
-    margin: 0 !important;
-  }
-
-  .scroll-hint {
-    font-size: 1.1rem !important;
-    color: #c38b93 !important;
-    animation: bounce 1.8s infinite !important;
-    line-height: 1 !important;
-    margin: 0 !important;
-  }
-
-  .circle-menu {
-    width: 320px !important;
-    height: 320px !important;
-    margin: 0 auto !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  .center-avatar {
-    width: 160px !important;
-    height: 160px !important;
-  }
-
-  .circle-button {
-    width: 140px !important;
-    height: 140px !important;
-    transform: rotate(var(--angle)) translate(110px) !important;
-  }
-
-  .circle-button span {
-    font-size: 1rem !important;
-    max-width: 60px !important;
-    position: relative !important;
-    top: -1px !important;
-  }
-
-  .circle-button:hover {
-    transform: rotate(var(--angle)) translate(110px) scale(1.1) !important;
-  }
-
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(0) !important;
-    }
-    50% {
-      transform: translateY(4px) !important;
-    }
+    display: none !important;
   }
 }
 
@@ -234,6 +200,7 @@ body {
   .left-panel {
     flex: 0 0 45%;
     min-width: 350px;
+    background: linear-gradient(180deg, #d97683 0%, #c86a72 100%);
   }
 
   .right-panel {
@@ -243,10 +210,12 @@ body {
 
   .left-panel h1 {
     font-size: 14vw;
+    letter-spacing: 0.05em;
   }
 
   .left-panel p {
     font-size: 1.4vw;
+    opacity: 0.9;
   }
 
   .circle-menu {
@@ -280,6 +249,7 @@ body {
   .left-panel {
     flex: 0 0 48%;
     min-width: 380px;
+    background: linear-gradient(180deg, #d97683 0%, #c86a72 100%);
   }
 
   .right-panel {
@@ -289,10 +259,12 @@ body {
 
   .left-panel h1 {
     font-size: 13vw;
+    letter-spacing: 0.05em;
   }
 
   .left-panel p {
     font-size: 1.3vw;
+    opacity: 0.9;
   }
 
   .circle-menu {
@@ -326,6 +298,7 @@ body {
   .left-panel {
     flex: 0 0 50%;
     min-width: 400px;
+    background: linear-gradient(180deg, #d97683 0%, #c86a72 100%);
   }
 
   .right-panel {
@@ -335,10 +308,12 @@ body {
 
   .left-panel h1 {
     font-size: 12vw;
+    letter-spacing: 0.05em;
   }
 
   .left-panel p {
     font-size: 1.2vw;
+    opacity: 0.9;
   }
 
   .circle-menu {
@@ -372,6 +347,7 @@ body {
   .left-panel {
     flex: 0 0 55%;
     min-width: 450px;
+    background: linear-gradient(180deg, #d97683 0%, #c86a72 100%);
   }
 
   .right-panel {
@@ -381,10 +357,12 @@ body {
 
   .left-panel h1 {
     font-size: 11vw;
+    letter-spacing: 0.05em;
   }
 
   .left-panel p {
     font-size: 1.1vw;
+    opacity: 0.9;
   }
 
   .circle-menu {
@@ -440,6 +418,7 @@ body {
   .left-panel {
     flex: 0 0 52%;
     min-width: 420px;
+    background: linear-gradient(180deg, #d97683 0%, #c86a72 100%);
   }
 
   .right-panel {
@@ -453,12 +432,14 @@ body {
   .left-panel {
     min-height: 40vh !important;
     padding: 2.5rem 0.5rem !important;
+    background: linear-gradient(180deg, #d97683 0%, #c86a72 100%) !important;
   }
 
   .left-panel h1 {
     font-size: 20vw !important;
     line-height: 0.9 !important;
-    letter-spacing: 0.02em !important;
+    letter-spacing: 0.05em !important;
+    margin-bottom: 0.5rem !important;
   }
 
   .left-panel h1 br {
@@ -469,47 +450,28 @@ body {
 
   .left-panel p {
     font-size: 4vw !important;
-    margin-top: 1.2rem !important;
+    margin-top: 1.5rem !important;
     line-height: 1.3 !important;
+    opacity: 0.9 !important;
   }
 
+  /* Flower navigation hidden on mobile - replaced by hamburger menu */
   .right-panel {
-    min-height: 60vh !important;
-    padding: 0.5rem !important;
-  }
-
-  .circle-menu {
-    width: 280px !important;
-    height: 280px !important;
-  }
-
-  .center-avatar {
-    width: 140px !important;
-    height: 140px !important;
-  }
-
-  .circle-button {
-    width: 120px !important;
-    height: 120px !important;
-    transform: rotate(var(--angle)) translate(95px) !important;
-  }
-
-  .circle-button span {
-    font-size: 0.9rem !important;
-    max-width: 50px !important;
-  }
-
-  .circle-button:hover {
-    transform: rotate(var(--angle)) translate(95px) scale(1.1) !important;
+    display: none !important;
   }
 }
 
 /* Very Small Mobile */
 @media (max-width: 360px) {
+  .left-panel {
+    background: linear-gradient(180deg, #d97683 0%, #c86a72 100%) !important;
+  }
+
   .left-panel h1 {
     font-size: 18vw !important;
     line-height: 0.9 !important;
-    letter-spacing: 0.02em !important;
+    letter-spacing: 0.05em !important;
+    margin-bottom: 0.5rem !important;
   }
 
   .left-panel h1 br {
@@ -520,52 +482,13 @@ body {
 
   .left-panel p {
     font-size: 3.5vw !important;
-    margin-top: 1rem !important;
+    margin-top: 1.5rem !important;
     line-height: 1.3 !important;
+    opacity: 0.9 !important;
   }
 
-  .circle-menu {
-    width: 250px !important;
-    height: 250px !important;
-  }
-
-  .center-avatar {
-    width: 125px !important;
-    height: 125px !important;
-  }
-
-  .circle-button {
-    width: 100px !important;
-    height: 100px !important;
-    transform: rotate(var(--angle)) translate(80px) !important;
-  }
-
-  .circle-button span {
-    font-size: 0.8rem !important;
-    max-width: 45px !important;
-  }
-
-  .circle-button:hover {
-    transform: rotate(var(--angle)) translate(80px) scale(1.1) !important;
-  }
-}
-
-/* Hide mobile helper strip on desktop/web */
-.mobile-intro {
-  display: none;
-}
-
-/* Show mobile helper strip only on mobile */
-@media (max-width: 768px) {
-  .mobile-intro {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
-    margin: 0 0 1.5rem 0 !important;
-    position: relative !important;
-    z-index: 1 !important;
-    width: 100% !important;
-    text-align: center !important;
+  /* Flower navigation hidden on mobile - replaced by hamburger menu */
+  .right-panel {
+    display: none !important;
   }
 } 

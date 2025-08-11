@@ -1,0 +1,81 @@
+/* Footer Styles - Shared across all pages */
+
+footer {
+  background: #333;
+  color: white;
+  padding: 0.75rem 2rem;
+  margin-top: auto;
+  flex-shrink: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-content {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.resume-link {
+  color: #d97683;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.resume-link:hover {
+  color: #bb5e6c;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+  footer {
+    padding: 0.5rem 1rem;
+    height: auto;
+    min-height: 40px;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .footer-links {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 0.5rem 1rem;
+  }
+  
+  .resume-link,
+  .footer-links a {
+    font-size: 0.85rem;
+  }
+} 

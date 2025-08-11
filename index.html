@@ -3,7 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zohreh Razavi | Portfolio</title>
+    <title>Zohreh Razavi — Portfolio</title>
+    <meta name="description" content="Software Project and Product Manager portfolio by Zohreh Razavi." />
+    <meta property="og:title" content="Zohreh Razavi — Portfolio" />
+    <meta property="og:description" content="Software Project and Product Manager portfolio by Zohreh Razavi." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/avatar.png" />
+    <meta property="og:url" content="/" />
+    <link rel="canonical" href="/" />
     <link
       href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;700&display=swap"
       rel="stylesheet"
@@ -12,46 +19,78 @@
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="shared/css/styles.css" />
+    <link rel="stylesheet" href="shared/css/header.css" />
+    <link rel="stylesheet" href="shared/css/footer.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="left-panel">
-      <h1>
-        ZOHREH
-        <br />
-        RAZAVI
-      </h1>
-      <p>Software Project and Product Manager</p>
-    </div>
-    <div class="right-panel">
-      <!-- Mobile-only helper strip -->
-      <div class="mobile-intro">
-        <p class="intro-note">Tap a petal to explore</p>
-        <div class="scroll-hint" aria-hidden="true">⌄</div>
+    <header class="site-header" data-header>
+      <a href="/" class="brand">ZOHREH RAZAVI</a>
+
+      <button class="hamburger" data-nav-toggle aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open menu">
+        <span class="hamburger__bar"></span>
+        <span class="hamburger__bar"></span>
+        <span class="hamburger__bar"></span>
+      </button>
+    </header>
+
+    <div class="backdrop" data-backdrop hidden></div>
+
+    <nav id="mobile-drawer" class="drawer" aria-hidden="true" data-drawer>
+      <ul class="drawer__list">
+        <li><a href="/tools/">Tools</a></li>
+        <li><a href="/flow/">Flow</a></li>
+        <li><a href="/notes/">Notes</a></li>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="main-content">
+      <div class="left-panel">
+        <h1>
+          ZOHREH
+          <br />
+          RAZAVI
+        </h1>
+        <p>Software Project and Product Manager</p>
       </div>
-      
-      <div class="circle-menu">
-        <img src="avatar.png" class="center-avatar" alt="Avatar" />
-        <div class="circle-button" style="--angle: 0deg;">
-          <span>About</span>
-        </div>
-        <div class="circle-button" style="--angle: 60deg;">
-          <span>Work</span>
-        </div>
-        <div class="circle-button" style="--angle: 120deg;">
-          <span>Blog</span>
-        </div>
-        <div class="circle-button" style="--angle: 180deg;">
-          <span>CV</span>
-        </div>
-        <div class="circle-button" style="--angle: 240deg;">
-          <span>Tools</span>
-        </div>
-        <div class="circle-button" style="--angle: 300deg;">
-          <span>Contact</span>
-        </div>
+      <div class="right-panel">
+        <nav class="circle-menu" aria-label="Primary navigation">
+          <img src="avatar.png" class="center-avatar" alt="Avatar" />
+          <a class="circle-button" style="--angle: 0deg;" href="/about/">
+            <span>About</span>
+          </a>
+          <a class="circle-button" style="--angle: 60deg;" href="/work/">
+            <span>Work</span>
+          </a>
+          <a class="circle-button" style="--angle: 120deg;" href="/notes/">
+            <span>Notes</span>
+          </a>
+          <a class="circle-button" style="--angle: 180deg;" href="/flow/">
+            <span>Flow</span>
+          </a>
+          <a class="circle-button" style="--angle: 240deg;" href="/tools/">
+            <span>Tools</span>
+          </a>
+          <a class="circle-button" style="--angle: 300deg;" href="/contact/">
+            <span>Contact</span>
+          </a>
+        </nav>
       </div>
     </div>
-    <script src="script.js"></script>
+    <footer>
+      <div class="footer-content">
+        <a href="/resume.pdf" class="resume-link">Resume (PDF)</a>
+        <div class="footer-links">
+          <a href="mailto:hello@zohreh.com">hello@zohreh.com</a>
+          <a href="https://linkedin.com/in/zohrehrazavi" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+    <script src="shared/js/script.js"></script>
+    <script src="/assets/js/nav.js" defer></script>
   </body>
 </html>
