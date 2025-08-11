@@ -1,0 +1,571 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #fdf2f4;
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  flex-wrap: wrap;
+}
+
+/* LEFT PANEL */
+.left-panel {
+  flex: 0 0 50%;
+  min-width: 300px;
+  background-color: #d97683;
+  color: #000;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.left-panel h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: 16vw;
+  font-weight: 900;
+  line-height: 0.95;
+  text-transform: uppercase;
+  text-align: left;
+  width: 100%;
+  letter-spacing: 0.02em;
+}
+
+.left-panel p {
+  margin-top: 2rem;
+  font-size: 1.6vw;
+  font-weight: 400;
+}
+
+/* RIGHT PANEL */
+.right-panel {
+  flex: 0 0 50%;
+  min-width: 300px;
+  background-color: #fff0f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 1rem;
+}
+
+.circle-menu {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-avatar {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 8px solid white;
+  object-fit: cover;
+  z-index: 2;
+}
+
+.circle-button {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background-color: #d97683;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(var(--angle)) translate(260px);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.circle-button span {
+  display: block;
+  transform: rotate(calc(-1 * var(--angle)));
+  color: white;
+  font-size: 1.6rem;
+  text-align: center;
+  max-width: 120px;
+  pointer-events: none;
+  line-height: 1.2;
+  font-weight: 500;
+  position: relative;
+  top: -2px;
+}
+
+.circle-button:hover {
+  background-color: #bb5e6c;
+  transform: rotate(var(--angle)) translate(260px) scale(1.1);
+}
+
+/* Small Screens (Mobile) */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column !important;
+  }
+
+  .left-panel {
+    width: 100% !important;
+    flex: none !important;
+    padding: 3rem 1rem !important;
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 45vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .left-panel h1 {
+    font-size: 22vw !important;
+    text-align: center !important;
+    width: 100% !important;
+    line-height: 0.9 !important;
+    margin-bottom: 0 !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .left-panel h1 br {
+    display: block !important;
+    content: "" !important;
+    margin-top: 0.5rem !important;
+  }
+
+  .left-panel p {
+    margin-top: 1.5rem !important;
+    font-size: 4.5vw !important;
+    text-align: center !important;
+    max-width: 90% !important;
+    line-height: 1.3 !important;
+  }
+
+  .right-panel {
+    width: 100% !important;
+    flex: none !important;
+    padding: 1rem !important;
+    min-height: 55vh !important;
+    display: grid !important;
+    place-items: center !important;
+    text-align: center !important;
+    margin: 0 !important;
+    max-width: none !important;
+    overflow: hidden !important;
+  }
+
+  /* Mobile-only helper strip */
+  .mobile-intro {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin: 0 0 1.5rem 0 !important;
+    position: relative !important;
+    z-index: 1 !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .intro-note {
+    font-size: 0.95rem !important;
+    color: #6b6b6b !important;
+    margin: 0 !important;
+  }
+
+  .scroll-hint {
+    font-size: 1.1rem !important;
+    color: #c38b93 !important;
+    animation: bounce 1.8s infinite !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+  }
+
+  .circle-menu {
+    width: 320px !important;
+    height: 320px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .center-avatar {
+    width: 160px !important;
+    height: 160px !important;
+  }
+
+  .circle-button {
+    width: 140px !important;
+    height: 140px !important;
+    transform: rotate(var(--angle)) translate(110px) !important;
+  }
+
+  .circle-button span {
+    font-size: 1rem !important;
+    max-width: 60px !important;
+    position: relative !important;
+    top: -1px !important;
+  }
+
+  .circle-button:hover {
+    transform: rotate(var(--angle)) translate(110px) scale(1.1) !important;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0) !important;
+    }
+    50% {
+      transform: translateY(4px) !important;
+    }
+  }
+}
+
+/* Laptop Screens - Prevent overlap while maintaining side-by-side layout */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .left-panel {
+    flex: 0 0 45%;
+    min-width: 350px;
+  }
+
+  .right-panel {
+    flex: 0 0 55%;
+    min-width: 400px;
+  }
+
+  .left-panel h1 {
+    font-size: 14vw;
+  }
+
+  .left-panel p {
+    font-size: 1.4vw;
+  }
+
+  .circle-menu {
+    width: 500px;
+    height: 500px;
+  }
+
+  .center-avatar {
+    width: 250px;
+    height: 250px;
+  }
+
+  .circle-button {
+    width: 280px;
+    height: 280px;
+    transform: rotate(var(--angle)) translate(220px);
+  }
+
+  .circle-button span {
+    font-size: 1.4rem;
+    max-width: 100px;
+  }
+
+  .circle-button:hover {
+    transform: rotate(var(--angle)) translate(220px) scale(1.1);
+  }
+}
+
+/* Medium Laptop Screens - Further optimization */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .left-panel {
+    flex: 0 0 48%;
+    min-width: 380px;
+  }
+
+  .right-panel {
+    flex: 0 0 52%;
+    min-width: 420px;
+  }
+
+  .left-panel h1 {
+    font-size: 13vw;
+  }
+
+  .left-panel p {
+    font-size: 1.3vw;
+  }
+
+  .circle-menu {
+    width: 450px;
+    height: 450px;
+  }
+
+  .center-avatar {
+    width: 220px;
+    height: 220px;
+  }
+
+  .circle-button {
+    width: 250px;
+    height: 250px;
+    transform: rotate(var(--angle)) translate(200px);
+  }
+
+  .circle-button span {
+    font-size: 1.2rem;
+    max-width: 90px;
+  }
+
+  .circle-button:hover {
+    transform: rotate(var(--angle)) translate(200px) scale(1.1);
+  }
+}
+
+/* Small Laptop Screens - Critical overlap prevention */
+@media (min-width: 769px) and (max-width: 900px) {
+  .left-panel {
+    flex: 0 0 50%;
+    min-width: 400px;
+  }
+
+  .right-panel {
+    flex: 0 0 50%;
+    min-width: 400px;
+  }
+
+  .left-panel h1 {
+    font-size: 12vw;
+  }
+
+  .left-panel p {
+    font-size: 1.2vw;
+  }
+
+  .circle-menu {
+    width: 400px;
+    height: 400px;
+  }
+
+  .center-avatar {
+    width: 200px;
+    height: 200px;
+  }
+
+  .circle-button {
+    width: 220px;
+    height: 220px;
+    transform: rotate(var(--angle)) translate(180px);
+  }
+
+  .circle-button span {
+    font-size: 1.1rem;
+    max-width: 80px;
+  }
+
+  .circle-button:hover {
+    transform: rotate(var(--angle)) translate(180px) scale(1.1);
+  }
+}
+
+/* 13-inch Laptop Specific - M3 MacBook and similar */
+@media (min-width: 769px) and (max-width: 1440px) and (max-height: 900px) {
+  .left-panel {
+    flex: 0 0 55%;
+    min-width: 450px;
+  }
+
+  .right-panel {
+    flex: 0 0 45%;
+    min-width: 400px;
+  }
+
+  .left-panel h1 {
+    font-size: 11vw;
+  }
+
+  .left-panel p {
+    font-size: 1.1vw;
+  }
+
+  .circle-menu {
+    width: 350px;
+    height: 350px;
+  }
+
+  .center-avatar {
+    width: 175px;
+    height: 175px;
+  }
+
+  .circle-button {
+    width: 190px;
+    height: 190px;
+    transform: rotate(var(--angle)) translate(170px);
+  }
+
+  .circle-button span {
+    font-size: 1rem;
+    max-width: 70px;
+  }
+
+  .circle-button:hover {
+    transform: rotate(var(--angle)) translate(170px) scale(1.1);
+  }
+}
+
+/* Additional 13-inch targeting - broader range */
+@media (min-width: 769px) and (max-width: 1600px) and (max-height: 900px) {
+  .circle-button {
+    transform: rotate(var(--angle)) translate(170px);
+  }
+  
+  .circle-button:hover {
+    transform: rotate(var(--angle)) translate(170px) scale(1.1);
+  }
+}
+
+/* Force tight flower for all laptop screens */
+@media (min-width: 769px) and (max-width: 1440px) {
+  .circle-button {
+    transform: rotate(var(--angle)) translate(170px);
+  }
+  
+  .circle-button:hover {
+    transform: rotate(var(--angle)) translate(170px) scale(1.1);
+  }
+}
+
+/* Ultra-wide laptop screens - prevent overlap */
+@media (min-width: 769px) and (max-width: 1600px) {
+  .left-panel {
+    flex: 0 0 52%;
+    min-width: 420px;
+  }
+
+  .right-panel {
+    flex: 0 0 48%;
+    min-width: 420px;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  .left-panel {
+    min-height: 40vh !important;
+    padding: 2.5rem 0.5rem !important;
+  }
+
+  .left-panel h1 {
+    font-size: 20vw !important;
+    line-height: 0.9 !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .left-panel h1 br {
+    display: block !important;
+    content: "" !important;
+    margin-top: 0.4rem !important;
+  }
+
+  .left-panel p {
+    font-size: 4vw !important;
+    margin-top: 1.2rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .right-panel {
+    min-height: 60vh !important;
+    padding: 0.5rem !important;
+  }
+
+  .circle-menu {
+    width: 280px !important;
+    height: 280px !important;
+  }
+
+  .center-avatar {
+    width: 140px !important;
+    height: 140px !important;
+  }
+
+  .circle-button {
+    width: 120px !important;
+    height: 120px !important;
+    transform: rotate(var(--angle)) translate(95px) !important;
+  }
+
+  .circle-button span {
+    font-size: 0.9rem !important;
+    max-width: 50px !important;
+  }
+
+  .circle-button:hover {
+    transform: rotate(var(--angle)) translate(95px) scale(1.1) !important;
+  }
+}
+
+/* Very Small Mobile */
+@media (max-width: 360px) {
+  .left-panel h1 {
+    font-size: 18vw !important;
+    line-height: 0.9 !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .left-panel h1 br {
+    display: block !important;
+    content: "" !important;
+    margin-top: 0.3rem !important;
+  }
+
+  .left-panel p {
+    font-size: 3.5vw !important;
+    margin-top: 1rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .circle-menu {
+    width: 250px !important;
+    height: 250px !important;
+  }
+
+  .center-avatar {
+    width: 125px !important;
+    height: 125px !important;
+  }
+
+  .circle-button {
+    width: 100px !important;
+    height: 100px !important;
+    transform: rotate(var(--angle)) translate(80px) !important;
+  }
+
+  .circle-button span {
+    font-size: 0.8rem !important;
+    max-width: 45px !important;
+  }
+
+  .circle-button:hover {
+    transform: rotate(var(--angle)) translate(80px) scale(1.1) !important;
+  }
+}
+
+/* Hide mobile helper strip on desktop/web */
+.mobile-intro {
+  display: none;
+}
+
+/* Show mobile helper strip only on mobile */
+@media (max-width: 768px) {
+  .mobile-intro {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin: 0 0 1.5rem 0 !important;
+    position: relative !important;
+    z-index: 1 !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+} 
