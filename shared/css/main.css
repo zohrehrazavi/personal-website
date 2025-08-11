@@ -15,7 +15,7 @@ main {
 .hero h1 {
   font-family: 'Anton', sans-serif;
   font-size: 3rem;
-  color: #d97683;
+  color: #5B2E91;
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -23,7 +23,7 @@ main {
 
 .hero .intro {
   font-size: 1.2rem;
-  color: #666;
+  color: #1B1B1B;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -45,18 +45,18 @@ main {
   width: 100%;
   max-width: 300px;
   border-radius: 50%;
-  border: 8px solid white;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border: 8px solid #FFFFFF;
+  box-shadow: 0 8px 32px rgba(91, 46, 145, 0.15);
 }
 
 .bio-text h2 {
-  color: #d97683;
+  color: #5B2E91;
   margin-bottom: 1rem;
   font-size: 1.8rem;
 }
 
 .bio-text h3 {
-  color: #333;
+  color: #1B1B1B;
   margin: 1.5rem 0 0.5rem 0;
   font-size: 1.3rem;
 }
@@ -81,18 +81,18 @@ main {
   background: white;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  border-left: 4px solid #d97683;
+  box-shadow: 0 4px 20px rgba(91, 46, 145, 0.1);
+  border-left: 4px solid #5B2E91;
 }
 
 .case-study h2 {
-  color: #d97683;
+  color: #5B2E91;
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
 
 .case-study h3 {
-  color: #333;
+  color: #1B1B1B;
   margin: 1rem 0 0.5rem 0;
   font-size: 1.1rem;
 }
@@ -114,12 +114,13 @@ main {
 }
 
 .tag {
-  background: #f0f0f0;
-  color: #666;
+  background: #F5F7FA;
+  color: #5B2E91;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 500;
+  border: 1px solid rgba(91, 46, 145, 0.2);
 }
 
 /* Flow page styles */
@@ -136,7 +137,7 @@ main {
   top: 0;
   bottom: 0;
   width: 4px;
-  background: #d97683;
+  background: #5B2E91;
 }
 
 .timeline-step {
@@ -151,7 +152,7 @@ main {
   top: 0;
   width: 60px;
   height: 60px;
-  background: #d97683;
+  background: #5B2E91;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -160,16 +161,17 @@ main {
   font-family: 'Anton', sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
+  box-shadow: 0 4px 20px rgba(91, 46, 145, 0.3);
 }
 
 .step-content h2 {
-  color: #d97683;
+  color: #5B2E91;
   margin-bottom: 1rem;
   font-size: 1.8rem;
 }
 
 .step-content p {
-  color: #666;
+  color: #1B1B1B;
   line-height: 1.7;
 }
 
@@ -184,21 +186,21 @@ main {
   background: white;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(91, 46, 145, 0.1);
 }
 
 .tool-category h2 {
-  color: #d97683;
+  color: #5B2E91;
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
-  border-bottom: 2px solid #f0f0f0;
+  border-bottom: 2px solid #F5F7FA;
   padding-bottom: 0.5rem;
 }
 
 .tool-item {
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #F5F7FA;
 }
 
 .tool-item:last-child {
@@ -207,13 +209,13 @@ main {
 }
 
 .tool-item h3 {
-  color: #333;
+  color: #1B1B1B;
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
 }
 
 .tool-item p {
-  color: #666;
+  color: #1B1B1B;
   font-size: 0.95rem;
   line-height: 1.5;
 }
@@ -228,19 +230,19 @@ main {
   background: white;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(91, 46, 145, 0.1);
   margin-bottom: 2rem;
-  border-left: 4px solid #d97683;
+  border-left: 4px solid #5B2E91;
 }
 
 .note h2 {
-  color: #d97683;
+  color: #5B2E91;
   margin-bottom: 1rem;
   font-size: 1.4rem;
 }
 
 .note p {
-  color: #666;
+  color: #1B1B1B;
   line-height: 1.7;
 }
 
@@ -255,13 +257,13 @@ main {
 
 .contact-info h2,
 .contact-form h2 {
-  color: #d97683;
+  color: #5B2E91;
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
 
 .contact-info p {
-  color: #666;
+  color: #1B1B1B;
   margin-bottom: 2rem;
   line-height: 1.6;
 }
@@ -280,16 +282,16 @@ main {
   background: white;
   border-radius: 8px;
   text-decoration: none;
-  color: #333;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  color: #1B1B1B;
+  box-shadow: 0 4px 20px rgba(91, 46, 145, 0.1);
   transition: all 0.3s ease;
 }
 
 .contact-link:hover {
-  background: #d97683;
+  background: #5B2E91;
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 32px rgba(91, 46, 145, 0.3);
 }
 
 .contact-link .icon {
@@ -304,7 +306,7 @@ main {
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #333;
+  color: #1B1B1B;
   font-weight: 500;
 }
 
@@ -312,7 +314,7 @@ main {
 .form-group textarea {
   width: 100%;
   padding: 0.75rem;
-  border: 2px solid #e0e0e0;
+  border: 2px solid #F5F7FA;
   border-radius: 6px;
   font-size: 1rem;
   font-family: inherit;
@@ -322,17 +324,18 @@ main {
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #d97683;
+  border-color: #00C6FF;
+  box-shadow: 0 0 0 3px rgba(0, 198, 255, 0.1);
 }
 
 .help-text {
   font-size: 0.85rem;
-  color: #666;
+  color: #1B1B1B;
   margin-top: 0.25rem;
 }
 
 .submit-btn {
-  background: #d97683;
+  background: #5B2E91;
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -340,11 +343,14 @@ main {
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(91, 46, 145, 0.2);
 }
 
 .submit-btn:hover {
-  background: #bb5e6c;
+  background: #8A4FFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(91, 46, 145, 0.4);
 }
 
 /* Responsive design */

@@ -1,7 +1,7 @@
 /* Footer Styles - Shared across all pages */
 
 footer {
-  background: #333;
+  background: #1B1B1B;
   color: white;
   padding: 0.75rem 2rem;
   margin-top: auto;
@@ -9,6 +9,8 @@ footer {
   height: 40px;
   display: flex;
   align-items: center;
+  overflow: hidden;
+  width: 100%;
 }
 
 .footer-content {
@@ -23,7 +25,7 @@ footer {
 }
 
 .resume-link {
-  color: #d97683;
+  color: #00C6FF;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -31,7 +33,7 @@ footer {
 }
 
 .resume-link:hover {
-  color: #bb5e6c;
+  color: #8A4FFF;
 }
 
 .footer-links {
@@ -40,14 +42,14 @@ footer {
 }
 
 .footer-links a {
-  color: #ccc;
+  color: #CCCCCC;
   text-decoration: none;
   transition: color 0.3s ease;
   font-size: 0.9rem;
 }
 
 .footer-links a:hover {
-  color: white;
+  color: #00C6FF;
 }
 
 /* Responsive footer */

@@ -9,18 +9,20 @@
   align-items: center; 
   justify-content: space-between;
   padding: .75rem 1rem;
-  background: linear-gradient(180deg, #d97683 0%, #c86a72 100%);
-  color: #000;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: linear-gradient(180deg, #5B2E91 0%, #8A4FFF 100%);
+  color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(91, 46, 145, 0.2);
   flex-shrink: 0;
   position: relative;
+  overflow: hidden;
+  width: 100%;
 }
 
 /* Brand link */
 .brand {
   font-family: 'Anton', sans-serif;
   font-size: 1.5rem;
-  color: #000;
+  color: #FFFFFF;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -29,8 +31,8 @@
 }
 
 .brand:hover {
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  color: #00C6FF;
+  text-shadow: 0 1px 2px rgba(0, 198, 255, 0.3);
 }
 
 /* Hamburger */
@@ -48,7 +50,7 @@
 .hamburger__bar { 
   height: 3px; 
   width: 100%; 
-  background: #000; 
+  background: #FFFFFF; 
   border-radius: 2px; 
 }
 
@@ -56,7 +58,7 @@
 .backdrop {
   position: fixed; 
   inset: 0; 
-  background: rgba(0,0,0,.35);
+  background: rgba(91, 46, 145, 0.35);
   z-index: 79; 
   opacity: 0; 
   visibility: hidden; 
@@ -68,13 +70,13 @@
   position: fixed; 
   inset: 0 0 0 auto; /* right side */
   width: min(78vw, 320px);
-  background: #d97683; 
-  color: #fff;
+  background: #5B2E91; 
+  color: #FFFFFF;
   transform: translateX(100%); 
   transition: transform .25s ease;
   z-index: 80; 
   padding: 1.25rem;
-  box-shadow: -8px 0 24px rgba(0,0,0,.15);
+  box-shadow: -8px 0 24px rgba(91, 46, 145, 0.25);
 }
 .drawer__list { 
   list-style: none; 
@@ -84,10 +86,15 @@
   gap: .75rem; 
 }
 .drawer__list a { 
-  color: #fff; 
+  color: #FFFFFF; 
   text-decoration: none; 
   font-weight: 700; 
   font-size: 1.125rem; 
+  transition: color 0.3s ease;
+}
+
+.drawer__list a:hover {
+  color: #00C6FF;
 }
 
 /* Open state (applied to <body>) */
@@ -99,9 +106,9 @@
 
 /* Legacy header styles for backward compatibility */
 header {
-  background: linear-gradient(180deg, #d97683 0%, #c86a72 100%);
+  background: linear-gradient(180deg, #5B2E91 0%, #8A4FFF 100%);
   padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(91, 46, 145, 0.2);
   flex-shrink: 0;
   position: relative;
 }
@@ -114,13 +121,13 @@ header::after {
   right: 0;
   bottom: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
 }
 
 .site-name {
   font-family: 'Anton', sans-serif;
   font-size: 1.5rem;
-  color: #000;
+  color: #FFFFFF;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -129,8 +136,8 @@ header::after {
 }
 
 .site-name:hover {
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  color: #00C6FF;
+  text-shadow: 0 1px 2px rgba(0, 198, 255, 0.3);
 }
 
 /* Visibility rules */
