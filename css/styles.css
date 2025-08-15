@@ -463,6 +463,32 @@ body {
   transform: translate(-50%, -50%);
 }
 
+/* iPad-specific hex positioning adjustments */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .top {
+    top: calc(50% - var(--hex-h) - 3px);
+  }
+  .bottom {
+    top: calc(50% + var(--hex-h) + 3px);
+  }
+  .tr {
+    top: calc(50% - 0.5 * var(--hex-h) - 2px);
+    left: calc(50% + 0.75 * var(--hex-w) + 3px);
+  }
+  .br {
+    top: calc(50% + 0.5 * var(--hex-h) + 2px);
+    left: calc(50% + 0.75 * var(--hex-w) + 3px);
+  }
+  .tl {
+    top: calc(50% - 0.5 * var(--hex-h) - 2px);
+    left: calc(50% - 0.75 * var(--hex-w) - 3px);
+  }
+  .bl {
+    top: calc(50% + 0.5 * var(--hex-h) + 2px);
+    left: calc(50% - 0.75 * var(--hex-w) - 3px);
+  }
+}
+
 /* Mobile-specific hex positioning adjustments */
 @media (max-width: 560px) {
   .top {
@@ -540,6 +566,108 @@ body {
 }
 
 /* ====== RESPONSIVE ====== */
+
+/* iPad Layout - Single column with hex cluster only */
+@media (min-width: 768px) and (max-width: 1024px) {
+  :root {
+    --hex-w: 240px;
+    --center-hex-w: 280px;
+    --hex-stroke: 6px;
+  }
+  
+  /* Ensure dark background */
+  html, body {
+    background: var(--bg) !important;
+    overflow: hidden !important;
+  }
+  
+  /* Force single column layout */
+  .wrap {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr !important;
+    height: 100vh;
+  }
+  
+  /* Hide hero section completely */
+  .hero {
+    display: none !important;
+  }
+  
+  /* Full screen panel */
+  .panel {
+    padding: 20px 10px 30px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100vh !important;
+    position: relative !important;
+    width: 100% !important;
+    background: var(--bg) !important;
+  }
+  
+  /* iPad-specific background enhancement */
+  .panel::before {
+    background: 
+      url('../images/bg.png') center/cover,
+      radial-gradient(
+        circle at center,
+        rgba(214, 31, 105, 0.08) 0%,
+        rgba(214, 31, 105, 0.03) 40%,
+        transparent 80%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.6) 0%,
+        rgba(15, 23, 42, 0.5) 50%,
+        rgba(0, 0, 0, 0.7) 100%
+      ) !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+  
+  /* Show mobile subtitle */
+  .mobile-subtitle {
+    display: block !important;
+    position: absolute !important;
+    top: 40px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    font-family: 'Anton', sans-serif !important;
+    font-size: clamp(24px, 3vw, 32px) !important;
+    font-weight: 400 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    color: #e2e8f0 !important;
+    text-align: center !important;
+    z-index: 10 !important;
+    line-height: 1.2 !important;
+    max-width: 80vw !important;
+    white-space: pre-line !important;
+  }
+  
+  /* Centered cluster */
+  .cluster {
+    width: calc(3.0 * var(--hex-w)) !important;
+    height: calc(3.0 * var(--hex-h)) !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) scale(1.2) !important;
+  }
+  
+  /* Ensure cluster background is visible */
+  .cluster::before {
+    width: calc(3.0 * var(--hex-w) + 80px) !important;
+    height: calc(3.0 * var(--hex-w) + 80px) !important;
+  }
+  
+  /* Bigger labels */
+  .label {
+    font-size: clamp(24px, 3vw, 32px) !important;
+  }
+}
+
 @media (max-width: 1200px) {
   :root {
     --hex-w: 220px;
@@ -916,8 +1044,8 @@ body.subpage .footer {
   margin-left: auto;
 }
 
-/* Show hamburger menu on mobile for all pages */
-@media (max-width: 768px) {
+/* Show hamburger menu on mobile and iPad for all pages */
+@media (max-width: 1024px) {
   .hamburger-menu {
     display: flex;
   }
