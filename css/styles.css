@@ -48,10 +48,16 @@ html {
 }
 html,
 body {
-  height: 100%;
+  height: 100vh;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background: 
+    url('./images/bg.png') center/cover,
+    var(--bg);
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
 }
 body {
   background: var(--bg);
@@ -110,6 +116,7 @@ body {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr; /* left hero smaller / right cluster larger */
   overflow: hidden;
+  background: transparent !important;
 }
 
 /* ====== LEFT HERO ====== */
@@ -155,7 +162,7 @@ body {
   display: grid;
   place-items: center;
   padding: clamp(18px, 3vw, 28px);
-  background: var(--bg);
+  background: transparent !important;
   position: relative;
   overflow: hidden;
 }
@@ -164,19 +171,19 @@ body {
   position: absolute;
   inset: 0;
   background: 
-    /* Simplified background with subtle glow */
+    /* Subtle overlay for better text readability */
     radial-gradient(
       circle at center,
-      rgba(214, 31, 105, 0.06) 0%,
-      rgba(214, 31, 105, 0.02) 40%,
+      rgba(214, 31, 105, 0.08) 0%,
+      rgba(214, 31, 105, 0.03) 40%,
       transparent 80%
     ),
-    /* Dark neutral background */
+    /* Light dark overlay */
     linear-gradient(
       135deg,
-      rgba(0, 0, 0, 0.9) 0%,
-      rgba(15, 23, 42, 0.8) 50%,
-      rgba(0, 0, 0, 0.95) 100%
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(15, 23, 42, 0.2) 50%,
+      rgba(0, 0, 0, 0.4) 100%
     );
   pointer-events: none;
   /* Removed animation for better performance */
@@ -550,6 +557,12 @@ body {
   html, body {
     overflow-x: hidden;
     width: 100%;
+    background: 
+      url('../images/mobile.png') center/cover,
+      var(--bg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
   }
   
   /* Improve touch targets */
@@ -581,6 +594,17 @@ body {
     overflow: hidden !important;
   }
   
+  /* Allow scrolling on subpages */
+  body.subpage {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+  
+  body.subpage .wrap {
+    height: auto !important;
+    min-height: calc(100vh - var(--bar-h));
+  }
+  
   /* Force single column layout */
   .wrap {
     grid-template-columns: 1fr !important;
@@ -604,6 +628,12 @@ body {
     position: relative !important;
     width: 100% !important;
     background: var(--bg) !important;
+  }
+  
+  /* Allow scrolling on subpages */
+  body.subpage .panel {
+    height: auto !important;
+    min-height: 100vh;
   }
   
   /* iPad-specific background enhancement */
@@ -758,6 +788,17 @@ body {
     --center-hex-w: 200px;
     --hex-stroke: 4px;
   }
+  
+  /* Force mobile background */
+  html, body {
+    background: 
+      url('../images/mobile.png') center/cover,
+      var(--bg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+  }
+  
   .wrap {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -773,6 +814,23 @@ body {
     justify-content: center;
     height: 100vh;
     position: relative;
+  }
+  
+  /* Mobile-specific background enhancement */
+  .panel::before {
+    background: 
+      radial-gradient(
+        circle at center,
+        rgba(214, 31, 105, 0.08) 0%,
+        rgba(214, 31, 105, 0.03) 40%,
+        transparent 80%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(15, 23, 42, 0.2) 50%,
+        rgba(0, 0, 0, 0.4) 100%
+      );
   }
   .mobile-subtitle {
     display: block;
@@ -815,6 +873,17 @@ body {
     --center-hex-w: 180px;
     --hex-stroke: 3px;
   }
+  
+  /* Force mobile background */
+  html, body {
+    background: 
+      url('../images/mobile.png') center/cover,
+      var(--bg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+  }
+  
   .hero {
     display: none; /* Keep hidden on smallest screens */
   }
@@ -822,6 +891,23 @@ body {
     padding: 10px 5px 20px;
     height: 100vh;
     position: relative;
+  }
+  
+  /* Mobile-specific background enhancement */
+  .panel::before {
+    background: 
+      radial-gradient(
+        circle at center,
+        rgba(214, 31, 105, 0.08) 0%,
+        rgba(214, 31, 105, 0.03) 40%,
+        transparent 80%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(15, 23, 42, 0.2) 50%,
+        rgba(0, 0, 0, 0.4) 100%
+      );
   }
   .mobile-subtitle {
     top: 25px;
@@ -850,6 +936,17 @@ body {
     --center-hex-w: 160px;
     --hex-stroke: 3px;
   }
+  
+  /* Force mobile background */
+  html, body {
+    background: 
+      url('../images/mobile.png') center/cover,
+      var(--bg) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+  }
+  
   .hero {
     display: none;
   }
@@ -857,6 +954,23 @@ body {
     padding: 8px 3px 15px;
     height: 100vh;
     position: relative;
+  }
+  
+  /* Mobile-specific background enhancement */
+  .panel::before {
+    background: 
+      radial-gradient(
+        circle at center,
+        rgba(214, 31, 105, 0.08) 0%,
+        rgba(214, 31, 105, 0.03) 40%,
+        transparent 80%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(15, 23, 42, 0.2) 50%,
+        rgba(0, 0, 0, 0.4) 100%
+      );
   }
   .mobile-subtitle {
     top: 20px;
@@ -892,6 +1006,23 @@ body {
     padding: 6px 2px 12px;
     height: 100vh;
     position: relative;
+  }
+  
+  /* Mobile-specific background enhancement */
+  .panel::before {
+    background: 
+      radial-gradient(
+        circle at center,
+        rgba(214, 31, 105, 0.08) 0%,
+        rgba(214, 31, 105, 0.03) 40%,
+        transparent 80%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(15, 23, 42, 0.2) 50%,
+        rgba(0, 0, 0, 0.4) 100%
+      );
   }
   .mobile-subtitle {
     top: 12px;
@@ -944,6 +1075,24 @@ body {
 body.subpage {
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+/* iPad subpage specific styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  body.subpage {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+  
+  body.subpage .wrap {
+    height: auto !important;
+    min-height: calc(100vh - var(--bar-h));
+  }
+  
+  body.subpage .panel {
+    height: auto !important;
+    min-height: 100vh;
+  }
 }
 
 /* Subpage layout structure */
