@@ -17,7 +17,7 @@ A modern, responsive one-page portfolio website showcasing professional experien
 
 ## 🚀 Live Website
 
-Visit the live website: [https://zohrehrazavi.github.io/personal-website/](https://zohrehrazavi.github.io/personal-website/)
+Visit the live website: [https://zohrehrazavi.com](https://zohrehrazavi.com)
 
 ## 🛠️ Technologies Used
 
